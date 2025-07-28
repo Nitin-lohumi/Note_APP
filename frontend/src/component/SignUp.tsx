@@ -10,7 +10,7 @@ import { logoutUser } from "../stores/Slices/UserSlices";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 export const API = axios.create({
-  baseURL: "https://note-app-vfg5.onrender.com",
+  baseURL: " https://note-app-7cn6.onrender.com",
   withCredentials: true,
 });
 function SignUp() {

@@ -2,9 +2,6 @@ import { motion } from "framer-motion";
 function Logo() {
   return (
     <motion.svg
-      // initial={{ rotate: 0 }}
-      // animate={{ rotate: 360 }}
-      // transition={{ duration: 5, repeat: Infinity }}
       className={"w-10 h-[32px] items-center"}
       xmlns="http://www.w3.org/2000/svg"
     >

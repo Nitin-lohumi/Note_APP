@@ -8,7 +8,7 @@ export default function PrivateRoute({ children }: { children: ReactNode }) {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get("https://note-app-vfg5.onrender.com/auth/check", { withCredentials: true })
+      .get(" https://note-app-7cn6.onrender.com/auth/check", { withCredentials: true })
       .then((res) => {
         console.log(res.data.user);
         dispatch(setUser(res.data.user));

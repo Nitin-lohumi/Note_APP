@@ -9,7 +9,9 @@ export default function PublicRoute({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("https://note-app-vfg5.onrender.com/auth/check", { withCredentials: true })
+      .get(" https://note-app-7cn6.onrender.com/auth/check", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (res.data.isLoggedIn) {
           dispatch(setUser(res.data.user));
