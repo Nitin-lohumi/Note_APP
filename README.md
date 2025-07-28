@@ -2,10 +2,10 @@
 
 This is a full-stack **Note-Taking Application** built using:
 
-- **Frontend**: HTML, CSS, JavaScript (Vanilla)
+- **Frontend**: reactjs, JavaScript (Vanilla)
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose
-- **Authentication**: Email + Password (Session-based login)
+- **Authentication**: Email + Password(OTP)
 
 ---
 
@@ -24,5 +24,5 @@ This is a full-stack **Note-Taking Application** built using:
 ###  Clone the repository
 
 ```bash
-git clone https://github.com/Nitin-lohumi/Note_APP.git
+git clone https://github.com/Nitin-lohumi/Note_APP
 cd Note_APP
