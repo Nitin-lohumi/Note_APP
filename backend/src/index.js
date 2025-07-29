@@ -21,23 +21,26 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    rolling: true,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI,
-        ttl: 15 * 60,
-    }),
-    cookie: {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-        maxAge: 15 * 60 * 1000,
-    },
-}));
+app.set("trust proxy", 1);
 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        rolling: true,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGODB_URI,
+            ttl: 15 * 60,
+        }),
+        cookie: {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            maxAge: 15 * 60 * 1000,
+        },
+    })
+);
 connectDB();
 
 app.use("/api/auth", authRoutes);
