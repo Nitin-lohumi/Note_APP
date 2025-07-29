@@ -53,7 +53,6 @@ app.get("/auth/check", (req, res) => {
     if (req.session?.user) {
         return res.json({ isLoggedIn: "true", user: req.session.user });
     }
-    res.clearCookie("connect.sid");
     const token = req.cookies.token;
     if (!token) {
         return res.json({ isLoggedIn: "false" });

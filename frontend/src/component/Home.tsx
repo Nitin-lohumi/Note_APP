@@ -9,7 +9,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 function Home() {
   const query = useQueryClient();
   const { user } = useSelector((state: any) => state.user);
-  console.log(user);
   const [extendedNotes, setExtendedNotes] = useState<Record<string, boolean>>(
     {}
   );

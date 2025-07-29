@@ -10,7 +10,6 @@ export default function PrivateRoute({ children }: { children: ReactNode }) {
     axios
       .get("https://note-app-7cn6.onrender.com/auth/check", { withCredentials: true })
       .then((res) => {
-        console.log(res.data.user);
         dispatch(setUser(res.data.user));
         return setAuth(res.data.user);
       })

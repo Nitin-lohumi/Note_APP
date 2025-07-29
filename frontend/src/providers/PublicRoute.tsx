@@ -24,6 +24,6 @@ export default function PublicRoute({ children }: { children: ReactNode }) {
         setLoading(false);
       });
   }, [navigate]);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return null;
   return children;
 }

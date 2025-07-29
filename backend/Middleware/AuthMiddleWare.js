@@ -4,6 +4,7 @@ const verifyToken = (req, res, next) => {
         req.user = req.session.user;
         return next();
     }
+    res.clearCookie("connect.sid");
     const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: 'Not Authenticated' });
     try {
@@ -11,7 +12,6 @@ const verifyToken = (req, res, next) => {
         req.user = decoded;
         next();
     } catch (err) {
-        console.log("token ->" + err);
         return res.status(401).json({ message: 'Invalid Token' });
     }
 };
