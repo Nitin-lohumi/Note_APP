@@ -9,7 +9,7 @@ export default function PublicRoute({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:9000/auth/check", {
+      .get("https://note-app-7cn6.onrender.com/auth/check", {
         withCredentials: true,
       })
       .then((res) => {
