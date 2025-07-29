@@ -10,7 +10,7 @@ import { logoutUser } from "../stores/Slices/UserSlices";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 export const API = axios.create({
-  baseURL: " https://note-app-7cn6.onrender.com",
+  baseURL: "http://localhost:9000",
   withCredentials: true,
 });
 function SignUp() {
@@ -78,8 +78,15 @@ function SignUp() {
     if (!Validate()) {
       return;
     }
+    setIsError((prev) => ({
+      ...prev,
+      name: "",
+      email: "",
+      dob: "",
+      otp: "",
+    }));
     try {
-      const res = await API.post("/api/auth/signupOtp", { email: Data.email });
+      const res = await API.post("/api/auth/signup/otp", { email: Data.email });
       console.log("OTP sent:", res.data);
       toast.success("otp send In Provided email valid For 5 min");
       setIsOtpSend(true);

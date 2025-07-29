@@ -48,10 +48,16 @@ function LoginPage() {
     if (!Validate()) {
       return;
     }
+    setIsError((prev) => ({
+      ...prev,
+      email: "",
+      otp: "",
+    }));
     setIsReSend(true);
     try {
-      await API.post("/api/auth/loginOtp", { email: Data.email });
+      await API.post("/api/auth/login/otp", { email: Data.email });
       toast.success("otp send In Provided email ,valid For 5 min");
+      if (isReSend) setData((prev) => ({ ...prev, otp: "" }));
     } catch (err: any) {
       console.error("OTP send error:", err.response?.data?.message);
       toast.error(err.response?.data?.message || "Failed to send OTP");
@@ -70,6 +76,7 @@ function LoginPage() {
       const res = await API.post("/api/auth/login/verify", {
         email: Data.email,
         otp: Data.otp,
+        keepMeLoggedIn: isKeepLogedIn,
       });
       toast.success("login successful!");
       console.log(res);

@@ -14,14 +14,12 @@ function Home() {
     {}
   );
   const [notes, setNotes] = useState("");
-  console.log(notes);
   const { data } = useQuery({
     queryKey: ["notes"],
     queryFn: () => API.get(`/api/notes/${user?.id}`),
     staleTime: 60 * 60 * 60,
     enabled: !!user?.id,
   });
-  console.log(data);
   const mutate = useMutation({
     mutationFn: () =>
       API.post("/api/notes", { content: notes, userid: user.id }),
@@ -31,6 +29,7 @@ function Home() {
       setNotes("");
     },
     onError: (error: any) => {
+      console.log(error)
       toast.error(error?.response?.data?.message || "Something went wrong", {
         autoClose: 2000,
       });
