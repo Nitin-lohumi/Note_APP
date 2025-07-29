@@ -18,7 +18,7 @@ export default function PrivateRoute({ children }: { children: ReactNode }) {
         return setAuth("false");
       });
   }, []);
-  if (auth == "") return;
+  if (auth == "") return <>loading...</>;
   if (auth == "false") return <Navigate to={"/auth/login"} />;
   return children;
 }

@@ -24,6 +24,6 @@ export default function PublicRoute({ children }: { children: ReactNode }) {
         setLoading(false);
       });
   }, [navigate]);
-  if (loading) return null;
+  if (loading) return <>Wait Authenticating... /</>;
   return children;
 }
